@@ -1,0 +1,33 @@
+$primary-color: #009fe3;
+$primary-grey: lighten(desaturate($primary-color, 85%), 10%);
+
+$secondary-color: #00e6ff;
+$secondary-grey: lighten(desaturate($secondary-color, 85%), 10%);
+
+// $light: lighten(desaturate($primary-color, 91%), 55%);
+$light: #e6ffff;
+
+//$dark: darken(desaturate($primary-color, 85%), 25%);
+$dark: #000b0c;
+
+$grey: desaturate($primary-color, 87%);
+
+$grey-100: lighten($grey, 40%);
+$grey-200: lighten($grey, 30%);
+$grey-300: lighten($grey, 20%);
+$grey-400: lighten($grey, 10%);
+$grey-500: $grey;
+$grey-600: darken($grey, 10%);
+$grey-700: darken($grey, 15%);
+$grey-800: darken($grey, 20%);
+$grey-900: darken($grey, 25%);
+
+$gradient: linear-gradient(45deg, $primary-color, $secondary-color);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+$main-font: 'Montserrat', 'Trebuchet MS', sans-serif;
+
+$max-width: 1100px;
+
+$w1-3: calc(100% / 3);
+$w2-3: calc((100% / 3) * 2);

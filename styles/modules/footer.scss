@@ -1,0 +1,104 @@
+.site-footer {
+	background: $dark;
+	padding: 2rem 1rem;
+
+	&__container {
+		margin: 2rem auto;
+		max-width: $max-width;
+
+		.footer-info {
+			align-content: center;
+			display: flex;
+			justify-content: space-between;
+
+			.footer-navigation {
+				.nav-list {
+					display: flex;
+
+					.menu-item {
+						margin: 0 1rem 0 0;
+
+						a {
+							color: $light;
+							font-size: 0.8rem;
+							letter-spacing: 0.1rem;
+							text-decoration: none;
+							text-transform: uppercase;
+
+							&:hover {
+								text-decoration: underline;
+							}
+
+							&:active,
+							&:visited {
+								color: $light;
+							}
+						}
+					}
+				}
+			}
+
+			.socialmedia-widget {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+
+				.email-link {
+					color: $light;
+					margin: 0 1rem 0 0;
+					text-decoration: none;
+					transition: all 0.3s;
+
+					&:hover {
+						color: $secondary-color;
+					}
+				}
+
+				.social-link {
+					margin: 0 1rem 0 0;
+
+					.link {
+						display: flex;
+						color: $light;
+						border: 1px solid $light;
+						text-decoration: none;
+						transition: all 0.3s;
+						padding: 0.25rem;
+						height: 30px;
+						width: 30px;
+
+						i {
+							margin: auto;
+						}
+
+						&:hover {
+							border-color: $secondary-color;
+							color: $secondary-color;
+						}
+					}
+				}
+
+				.custom-logo-link {
+					width: 30px;
+
+					svg {
+						fill: $light;
+						width: 100%;
+
+						* {
+							fill: $light !important;
+						}
+					}
+				}
+			}
+		}
+
+		.copy {
+			margin: 3rem 0 0;
+			padding: 2rem 0 0;
+			border-top: 1px solid $grey;
+			text-align: center;
+			color: $grey;
+		}
+	}
+}

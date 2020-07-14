@@ -1,0 +1,169 @@
+@import '~sanitize.css/sanitize.css';
+@import './includes/*.scss';
+/******************************************************
+*                    SOME FIXES
+******************************************************/
+*,
+*:after,
+*:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-appearance: none !important;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+	hyphens: none;
+	outline: none;
+}
+/* Wordpress screen reader */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+}
+/******************************************************
+*                  GLOBAL STYLES 
+******************************************************/
+html,
+body {
+	scroll-behavior: smooth;
+
+	@include firefox {
+		font-size: 85%;
+	}
+
+	@include scrollbars(10px, $primary-color, $grey);
+}
+
+body {
+	background: #fff;
+	color: $dark;
+	font-family: $main-font;
+	font-weight: 300;
+	line-height: 1.5;
+	margin: 0 auto;
+
+	main {
+		overflow-x: hidden;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 700;
+		hyphens: none !important;
+	}
+
+	p {
+		margin: 0 0 1rem;
+
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+
+	a {
+		color: $secondary-color;
+
+		&:visited {
+			color: $secondary-grey;
+		}
+	}
+
+	strong,
+	b {
+		font-weight: bold;
+		font-weight: 700;
+	}
+
+	input,
+	textarea,
+	select {
+		border-radius: 0;
+		font-family: $main-font;
+		font-size: 1rem;
+	}
+
+	.icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.feat-img {
+		position: relative;
+		overflow: hidden;
+
+		.bg-placeholder-img {
+			background-size: cover;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+			filter: blur(21px);
+		}
+
+		img {
+			display: block;
+			left: 0;
+			position: absolute;
+			top: 0;
+			z-index: 2;
+		}
+	}
+
+	.button {
+		background: $gradient;
+		border: 1px solid $light;
+		padding: 0.5rem 1rem;
+		text-align: center;
+		text-decoration: none;
+		color: $light;
+		transition: all 0.3s;
+
+		&.upper {
+			letter-spacing: 0.1rem;
+			font-size: 0.9rem;
+			text-transform: uppercase;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:active,
+		&:visited {
+			color: $light;
+		}
+	}
+
+	.fader {
+		animation: fadeIn linear 0.5s;
+	}
+} // body
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/******************************************************
+*                    MODULES
+******************************************************/
+@import './modules/*.scss';

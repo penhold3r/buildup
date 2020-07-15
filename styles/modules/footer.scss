@@ -79,6 +79,7 @@
 				}
 
 				.custom-logo-link {
+					height: 30px;
 					width: 30px;
 
 					svg {
@@ -87,6 +88,10 @@
 
 						* {
 							fill: $light !important;
+						}
+
+						#copy {
+							display: none;
 						}
 					}
 				}
@@ -99,6 +104,12 @@
 			border-top: 1px solid $grey;
 			text-align: center;
 			color: $grey;
+
+			a,
+			a:visited {
+				color: $grey;
+				text-decoration: none;
+			}
 		}
 	}
 }

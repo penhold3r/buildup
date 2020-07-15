@@ -9,14 +9,19 @@
 
 ?>
 
-<section class="hero">
+<section class="hero landing">
 
    <?php $hero = get_field('hero') ?>
 
-   <?php acf_image($hero['hero_image']) ?>
+   <?php
+      acf_image($hero['hero_image'], array(
+         'classes' => array('lazy'),
+         'data' => array('aos' => 'fade-left')
+      ));
+   ?>
 
-   <div class="hero__content">
-      <div class="content-text">
+   <div class="hero__content" data-aos="fade-right">
+      <div class="content-text" data-aos="fade-right" data-aos-delay="300">
          <h2>
             <?php echo $hero['hero_text'] ?>
          </h2>

@@ -43,7 +43,6 @@
 
 	.acf-image {
 		height: calc(100% - 5rem);
-		opacity: 0.6;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -53,6 +52,7 @@
 		img {
 			height: 100%;
 			object-fit: cover;
+			opacity: 0.6 !important;
 			width: 100%;
 		}
 	}

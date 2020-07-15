@@ -75,9 +75,10 @@ body {
 	}
 
 	strong,
-	b {
+	b,
+	.bold {
 		font-weight: bold;
-		font-weight: 700;
+		font-weight: 600;
 	}
 
 	input,
@@ -94,7 +95,7 @@ body {
 		align-items: center;
 	}
 
-	.feat-img {
+	.acf-image {
 		position: relative;
 		overflow: hidden;
 
@@ -103,6 +104,7 @@ body {
 			height: 100%;
 			left: 0;
 			position: absolute;
+			transition: all 0.4s;
 			top: 0;
 			width: 100%;
 			z-index: 1;
@@ -115,6 +117,22 @@ body {
 			position: absolute;
 			top: 0;
 			z-index: 2;
+		}
+
+		&.lazy {
+			img {
+				opacity: 0;
+				transition: all 0.4s;
+			}
+
+			&.loaded {
+				.bg-placeholder-img {
+					opacity: 0;
+				}
+				img {
+					opacity: 1;
+				}
+			}
 		}
 	}
 
@@ -141,6 +159,17 @@ body {
 		&:visited {
 			color: $light;
 		}
+	}
+
+	.hidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
 	}
 
 	.fader {

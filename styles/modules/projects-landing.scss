@@ -1,5 +1,5 @@
 .projects-landing {
-	margin: 10% auto 15%;
+	margin: 10vh auto 15%;
 	max-width: calc(#{$max-width} + 2rem);
 	padding: 1rem;
 	position: relative;
@@ -23,7 +23,11 @@
 			position: absolute;
 			top: 2rem;
 			width: 100%;
-			z-index: 1;
+			z-index: 5;
+		}
+
+		.bg-placeholder-img {
+			filter: blur(20) grayscale(1) !important;
 		}
 
 		img {
@@ -33,6 +37,10 @@
 			object-fit: cover;
 			position: relative;
 			width: 100%;
+		}
+
+		&.loaded {
+			overflow: initial;
 		}
 	}
 

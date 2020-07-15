@@ -31,7 +31,7 @@
       <header class="site-header">
          <div class="site-header__content">
 
-            <h1 class="site-logo"><?php the_custom_logo(); ?>
+            <h1 class="site-logo" data-aos="fade-up"><?php the_custom_logo(); ?>
             </h1>
 
             <?php

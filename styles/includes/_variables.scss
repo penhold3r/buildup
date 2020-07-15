@@ -1,8 +1,8 @@
 $primary-color: #009fe3;
-$primary-grey: lighten(desaturate($primary-color, 85%), 10%);
+$primary-grey: lighten(desaturate($primary-color, 75%), 10%);
 
 $secondary-color: #00e6ff;
-$secondary-grey: lighten(desaturate($secondary-color, 85%), 10%);
+$secondary-grey: lighten(desaturate($secondary-color, 75%), 10%);
 
 // $light: lighten(desaturate($primary-color, 91%), 55%);
 $light: #e6ffff;

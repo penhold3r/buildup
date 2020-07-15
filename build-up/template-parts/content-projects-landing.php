@@ -9,11 +9,11 @@
 
 ?>
 
-<section class="projects-landing">
+<section class="projects-landing landing">
 
    <?php $projects = get_field('projects_landing') ?>
 
-   <?php acf_image($projects['projects_image']) ?>
+   <?php acf_image($projects['projects_image'], array('classes' => array('lazy'))) ?>
 
    <div class="projects-landing__content">
       <div class="projects-text">

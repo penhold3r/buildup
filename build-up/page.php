@@ -20,8 +20,11 @@ while (have_posts()) :
    if (is_front_page()):
       get_template_part('template-parts/content', 'home');
 
-   elseif ($post->post_name === 'rutas'):
-      get_template_part('template-parts/content', 'routes');
+   elseif ($post->post_name === 'nosotros'):
+      get_template_part('template-parts/content', 'about');
+
+   elseif ($post->post_name === 'proyectos'):
+      get_template_part('template-parts/content', 'projects');
    
    elseif ($post->post_name === 'contacto'):
       get_template_part('template-parts/content', 'contact');

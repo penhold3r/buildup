@@ -55,10 +55,11 @@
 
 		.about-text {
 			position: relative;
-			border: 1px solid $light;
+			border: 1px solid transparent;
 			margin: auto auto 0;
-			max-width: $max-width;
-			padding: 3rem;
+			max-width: 900px;
+			padding: 3rem 0;
+			transition: all 0.5s ease-in-out 0.5s;
 			width: 100%;
 			z-index: 2;
 
@@ -66,8 +67,15 @@
 				color: $light;
 				font-size: 1.25rem;
 				margin: 0 auto 1rem;
-				text-align: center;
 				max-width: 800px;
+				text-align: center;
+			}
+		}
+
+		&.aos-animate {
+			.about-text {
+				border-color: $light;
+				max-width: $max-width;
 			}
 		}
 

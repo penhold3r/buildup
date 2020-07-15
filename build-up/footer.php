@@ -41,6 +41,10 @@
             <span>&nbsp;&copy;&nbsp;</span>
             <?php echo date('Y') ?>
          </small>
+         <span>&nbsp;|&nbsp;</span>
+         <small>
+            <a href="https://github.com/penhold3r">Desarrollo: penHolder Designerd</a>
+         </small>
       </div><!-- .copy -->
 
    </div>

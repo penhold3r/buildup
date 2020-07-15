@@ -9,7 +9,7 @@
 
 ?>
 
-<section id="nosotros" class="about-landing">
+<section id="nosotros" class="about-landing landing" data-aos="fade-in">
 
    <?php $about = get_field('about_landing') ?>
 
@@ -21,7 +21,7 @@
       </video>
    </div>
 
-   <div class="about-text-content">
+   <div class="about-text-content" data-aos="fade-up">
       <div class="about-text">
          <?php echo $about['about_text'] ?>
       </div>

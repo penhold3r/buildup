@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="closing-landing">
+<section class="closing-landing landing">
 
    <div class="closing-landing__text">
       <p>

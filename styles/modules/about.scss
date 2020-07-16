@@ -25,7 +25,6 @@
 
 		.header-content {
 			align-self: flex-end;
-			margin-bottom: 5rem;
 			padding: 0 1rem;
 			position: relative;
 			width: 100%;
@@ -63,7 +62,7 @@
 				z-index: 2;
 
 				p {
-					@extend .bold;
+					//@extend .bold;
 
 					padding-right: 2rem;
 					width: 50%;

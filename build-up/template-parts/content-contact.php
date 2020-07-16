@@ -12,17 +12,18 @@
 <section class="contact-page">
 
    <header class="contact-page__header">
-      <?php the_title('<h2 class="title">', '</h2>') ?>
+      <?php the_title('<h2 class="contact-title">', '</h2>') ?>
 
-
-   </header>
-
-   <div class="contact-page__content">
       <div class="contact-info">
          <?php the_field('contact_info') ?>
       </div>
 
-      <?php
+   </header> <!-- .contact-page__header -->
+
+   <div class="contact-page__content">
+      <div class="form-container">
+
+         <?php
 
          $fields = get_field('fields');
          $recipient = get_field('recipient');
@@ -43,13 +44,15 @@
                  $icon = $field['value'] === 'email' ? 'icon-at' : $icon;
                  $icon = $field['value'] === 'phone' ? 'icon-phone' : $icon;
                  $icon = $field['value'] === 'message' ? 'icon-comment' : $icon;
-               
-                 array_push($form_fields, array(
-                  'type' => $type,
-                  'name' => $field['value'],
-                  'placeholder' => $field['label'],
-                  'container_class' => ' icon '. $icon
-               ));
+
+                 $field_options = array(
+                     'type' => $type,
+                     'name' => $field['value'],
+                     'placeholder' => $field['label'],
+                     'container_class' => ' icon '. $icon
+                 );
+            
+                 array_push($form_fields, $field_options);
              }
          };
 
@@ -62,15 +65,15 @@
                   'field_container' => 'contact-form__field-container',
                   'required' => true,
                   'submit_value' => 'Enviar',
-                  'submit_class' => 'contact-form__submit',
+                  'submit_class' => 'contact-form__submit button',
                   'submit_content_before' => '<i class="icon icon-arrow-right"></i>',
                   'form_after' => '<div class="output-msg"><p></p></div>'
                )
              );
          }
-   
-
       ?>
+
+      </div>
    </div><!-- .contact-page__content -->
 
 </section>

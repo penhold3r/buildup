@@ -1,14 +1,119 @@
 .contact-page {
-	padding: 200px 0 0;
+	display: flex;
+	padding: 180px 0 8rem;
 	position: relative;
+	max-width: $max-width;
+	width: 100%;
+	margin: 0 auto;
 
 	&:before {
 		content: '';
 		background: $dark;
 		position: absolute;
 		height: 250px;
-		width: 100%;
+		width: 100vw;
+		left: 50%;
+		transform: translateX(-50%);
 		z-index: -1;
 		top: 0;
 	}
-}
+
+	&__header {
+		background: $gradient;
+		height: fit-content;
+		padding: 2rem;
+		width: 50%;
+
+		.contact-title {
+			color: $light;
+			font-size: 2rem;
+			margin: 0 0 1rem;
+		}
+
+		.contact-info {
+			p {
+				font-size: 1.25rem;
+				margin: 0 0 1rem;
+
+				a {
+					display: inline-block;
+					color: $dark;
+					text-decoration: none;
+					transition: all 0.3s;
+
+					&:hover {
+						background: $secondary-color;
+						padding: 0 0.5rem;
+					}
+				}
+			}
+		}
+	} /* __header  */
+
+	&__content {
+		position: relative;
+		width: 50%;
+
+		.form-container {
+			position: relative;
+			right: 2rem;
+			top: 3rem;
+			width: 100%;
+			border: 1px solid $secondary-grey;
+			padding: 2rem;
+
+			.contact-form {
+				display: flex;
+				flex-direction: column;
+				padding: 3rem;
+				position: relative;
+
+				&__field-container {
+					display: flex;
+					margin: 0 0 1rem;
+
+					&:before {
+						color: $primary-color;
+						margin-right: 1rem;
+					}
+
+					.form-field {
+						border: none;
+						border-bottom: 1px solid $primary-color;
+						color: $dark;
+						flex-grow: 1;
+						padding: 0.5rem 1rem;
+						transition: all 0.3s;
+
+						&.textarea {
+							height: 4rem;
+							resize: vertical;
+						}
+
+						@include placeholder {
+							color: $grey;
+							text-transform: uppercase;
+							letter-spacing: 0.1rem;
+							transition: all 0.3s;
+							font-size: 0.8rem;
+						}
+
+						&:focus {
+							background-color: $light;
+
+							@include placeholder {
+								padding-left: 3rem;
+								opacity: 0;
+							}
+						}
+					} /* .form-field */
+				} /* field-container  */
+
+				&__submit {
+					align-self: flex-end;
+					cursor: pointer;
+				} /* submit  */
+			} /* .contact-form */
+		} /* .form-container  */
+	} /* __content  */
+} /* .contact-page  */

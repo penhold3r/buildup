@@ -1350,9 +1350,7 @@ body {
             hyphens: none !important; }
   body strong,
   body b,
-  body .bold,
-  body .about-page__header .header-content .about-text p,
-  .about-page__header .header-content .about-text body p {
+  body .bold {
     font-weight: bold;
     font-weight: 600; }
   body input,
@@ -1466,7 +1464,6 @@ body {
         width: 100%; }
     .about-page__header .header-content {
       align-self: flex-end;
-      margin-bottom: 5rem;
       padding: 0 1rem;
       position: relative;
       width: 100%;
@@ -1683,17 +1680,129 @@ a {
         width: 70%; }
 
 .contact-page {
-  padding: 200px 0 0;
-  position: relative; }
+  display: flex;
+  padding: 180px 0 8rem;
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  /* __header  */
+  /* __content  */ }
   .contact-page:before {
     content: '';
     background: #000b0c;
     position: absolute;
     height: 250px;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: -1;
     top: 0; }
+  .contact-page__header {
+    background: linear-gradient(45deg, #009fe3, #00e6ff);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 2rem;
+    width: 50%; }
+    .contact-page__header .contact-title {
+      color: #e6ffff;
+      font-size: 2rem;
+      margin: 0 0 1rem; }
+    .contact-page__header .contact-info p {
+      font-size: 1.25rem;
+      margin: 0 0 1rem; }
+      .contact-page__header .contact-info p a {
+        display: inline-block;
+        color: #000b0c;
+        text-decoration: none;
+        transition: all 0.3s; }
+        .contact-page__header .contact-info p a:hover {
+          background: #00e6ff;
+          padding: 0 0.5rem; }
+  .contact-page__content {
+    position: relative;
+    width: 50%;
+    /* .form-container  */ }
+    .contact-page__content .form-container {
+      position: relative;
+      right: 2rem;
+      top: 3rem;
+      width: 100%;
+      border: 1px solid #80aeb3;
+      padding: 2rem;
+      /* .contact-form */ }
+      .contact-page__content .form-container .contact-form {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+        position: relative;
+        /* field-container  */
+        /* submit  */ }
+        .contact-page__content .form-container .contact-form__field-container {
+          display: flex;
+          margin: 0 0 1rem;
+          /* .form-field */ }
+          .contact-page__content .form-container .contact-form__field-container:before {
+            color: #009fe3;
+            margin-right: 1rem; }
+          .contact-page__content .form-container .contact-form__field-container .form-field {
+            border: none;
+            border-bottom: 1px solid #009fe3;
+            color: #000b0c;
+            flex-grow: 1;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s; }
+            .contact-page__content .form-container .contact-form__field-container .form-field.textarea {
+              height: 4rem;
+              resize: vertical; }
+            .contact-page__content .form-container .contact-form__field-container .form-field::-webkit-input-placeholder {
+              color: #637780;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem;
+              -webkit-transition: all 0.3s;
+              transition: all 0.3s;
+              font-size: 0.8rem; }
+            .contact-page__content .form-container .contact-form__field-container .form-field:-moz-placeholder {
+              color: #637780;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem;
+              -moz-transition: all 0.3s;
+              transition: all 0.3s;
+              font-size: 0.8rem; }
+            .contact-page__content .form-container .contact-form__field-container .form-field::-moz-placeholder {
+              color: #637780;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem;
+              -moz-transition: all 0.3s;
+              transition: all 0.3s;
+              font-size: 0.8rem; }
+            .contact-page__content .form-container .contact-form__field-container .form-field:-ms-input-placeholder {
+              color: #637780;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem;
+              -ms-transition: all 0.3s;
+              transition: all 0.3s;
+              font-size: 0.8rem; }
+            .contact-page__content .form-container .contact-form__field-container .form-field:focus {
+              background-color: #e6ffff; }
+              .contact-page__content .form-container .contact-form__field-container .form-field:focus::-webkit-input-placeholder {
+                padding-left: 3rem;
+                opacity: 0; }
+              .contact-page__content .form-container .contact-form__field-container .form-field:focus:-moz-placeholder {
+                padding-left: 3rem;
+                opacity: 0; }
+              .contact-page__content .form-container .contact-form__field-container .form-field:focus::-moz-placeholder {
+                padding-left: 3rem;
+                opacity: 0; }
+              .contact-page__content .form-container .contact-form__field-container .form-field:focus:-ms-input-placeholder {
+                padding-left: 3rem;
+                opacity: 0; }
+        .contact-page__content .form-container .contact-form__submit {
+          align-self: flex-end;
+          cursor: pointer; }
 
+/* .contact-page  */
 .site-footer {
   background: #000b0c;
   padding: 2rem 1rem; }
@@ -1831,6 +1940,7 @@ a {
   position: relative; }
   .hero__content {
     margin: auto 0;
+    padding: 0 1rem;
     position: relative;
     width: 100%;
     z-index: 1; }
@@ -1853,7 +1963,7 @@ a {
       z-index: 1; }
       .hero__content .content-text h2 {
         color: #e6ffff;
-        font-size: 3.25rem;
+        font-size: 3rem;
         line-height: 1.1;
         font-weight: bold;
         margin: 0;
@@ -1894,7 +2004,7 @@ a {
       .hero__scroll .scroll span {
         color: #e6ffff;
         text-transform: uppercase;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         letter-spacing: 0.1rem; }
 
 p {
@@ -2010,7 +2120,7 @@ p {
       width: 100%; }
 
 .projects-page {
-  padding: 200px 0 0;
+  padding: 180px 0 0;
   position: relative;
   /* __header  */
   /* .projects-list  */ }

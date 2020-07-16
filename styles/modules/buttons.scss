@@ -1,0 +1,32 @@
+a {
+	color: $secondary-color;
+
+	&:visited {
+		color: $secondary-grey;
+	}
+} /* a */
+
+.button {
+	background: $gradient;
+	border: 1px solid $light;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	text-decoration: none;
+	color: $light;
+	transition: all 0.3s;
+
+	&.upper {
+		letter-spacing: 0.1rem;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+	} /* .upper */
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active,
+	&:visited {
+		color: $light;
+	}
+} /* .button */

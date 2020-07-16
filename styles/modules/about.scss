@@ -159,11 +159,11 @@
 		}
 
 		.acf-image {
+			bottom: 0;
 			left: 0;
+			position: absolute;
 			transform: translateX(0);
 			width: 50%;
-			position: absolute;
-			bottom: 0;
 
 			&:before {
 				content: none;
@@ -175,8 +175,8 @@
 		}
 
 		.clients-content {
-			position: relative;
 			padding: 3rem 3rem 3rem calc(50% + 3rem);
+			position: relative;
 			top: 0;
 			transform: translateY(0);
 
@@ -192,9 +192,9 @@
 	}
 
 	&__closing {
+		background: $light;
 		margin: 12rem auto;
 		padding: 0 1rem;
-		background: $light;
 
 		.closing-content {
 			align-items: center;
@@ -202,17 +202,17 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			position: relative;
-			top: -2rem;
 			margin: 0 auto;
 			max-width: $max-width;
 			padding: 4rem;
+			position: relative;
+			top: -2rem;
 			width: 100%;
 
 			p {
-				text-align: center;
-				margin: 0;
 				font-size: 2.5rem;
+				margin: 0;
+				text-align: center;
 
 				&:first-of-type {
 					color: $primary-color;

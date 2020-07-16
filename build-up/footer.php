@@ -43,7 +43,8 @@
          </small>
          <span>&nbsp;|&nbsp;</span>
          <small>
-            <a href="https://github.com/penhold3r">Desarrollo: penHolder Designerd</a>
+            <a href="https://github.com/penhold3r" rel="noopener noreferrer"
+               target="_blank">Desarrollo: penHolder Designerd</a>
          </small>
       </div><!-- .copy -->
 

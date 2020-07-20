@@ -11,10 +11,10 @@
 
 <section class="closing-landing landing">
 
-   <div class="closing-landing__text">
-      <p>
-         <?php the_field('closing_text') ?>
-      </p>
+   <div class="closing-landing__text" data-aos="zoom-out">
+
+      <?php the_field('closing_text') ?>
+
    </div>
 
 </section><!-- .closing-landing -->

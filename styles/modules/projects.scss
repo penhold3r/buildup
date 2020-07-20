@@ -18,7 +18,7 @@
 		margin: 0 0 6rem;
 
 		.header-content {
-			border: 1px solid $grey;
+			//border: 1px solid $grey;
 			margin: 0 auto;
 			max-width: $max-width;
 			padding: 3rem;
@@ -28,7 +28,6 @@
 			.projects-title {
 				color: $light;
 				font-size: 2rem;
-				font-weight: normal;
 				text-align: center;
 				margin: 0 0 1rem;
 			} /* .projects-title  */
@@ -52,21 +51,29 @@
 
 				p {
 					font-size: 1.25rem;
-					text-align: center;
+					letter-spacing: 0.1rem;
+					line-height: 1.3;
 					margin: 0;
+					text-align: center;
+					text-transform: uppercase;
+
+					strong {
+						display: block;
+					}
 				}
 			} /* .projects-intro  */
 		} /* .header-content  */
 	} /* __header  */
 
 	.projects-list {
+		overflow: hidden;
 		padding: 3rem 1rem;
 		position: relative;
 
 		.project-item {
 			align-items: center;
 			display: flex;
-			margin: 0 auto 8rem;
+			margin: 0 auto 6rem;
 			max-width: $max-width;
 			position: relative;
 			width: 100%;
@@ -89,22 +96,103 @@
 			} /* .acf-image */
 
 			.project-details {
-				border: 1px solid $secondary-color;
-				padding: 2rem 2rem 2rem calc(50% + 2rem);
+				//border: 1px solid $secondary-color;
+				padding: 3rem;
 				position: relative;
 				z-index: 1;
 
 				.project-title {
 					color: $primary-color;
+					letter-spacing: 0.1rem;
 					margin: 0 0 1rem;
+					text-transform: uppercase;
 				}
 
-				.project-desc {
-					p {
-						margin: 0 0 1rem;
+				.project-gallery {
+					position: relative;
+
+					.gallery-scroll {
+						overflow: hidden;
+						position: relative;
+
+						&:after,
+						&:before {
+							content: '';
+							height: 100%;
+							width: 4rem;
+							top: 0;
+							position: absolute;
+							z-index: 9;
+						}
+
+						&:before {
+							//background: linear-gradient(90deg, white, transparent);
+							left: 0;
+						}
+
+						&:after {
+							background: linear-gradient(90deg, transparent, white);
+							right: 0;
+						}
+
+						.slider {
+							display: flex;
+							transition: all 0.3s;
+							position: relative;
+							left: 0;
+
+							.image-block {
+								cursor: pointer;
+								min-width: 18%;
+								transition: all 0.3s;
+
+								img {
+									display: block;
+									height: 150px;
+									object-fit: cover;
+									width: 100%;
+									transition: all 0.4s;
+								}
+
+								&:hover {
+									opacity: 0.8;
+								}
+							}
+						}
+					}
+
+					.prevnext {
+						display: flex;
+						justify-content: space-between;
+						left: -2rem;
+						pointer-events: none;
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+						width: calc(100% + 4rem);
+
+						.arrow {
+							cursor: pointer;
+							font-size: 1.25rem;
+							font-weight: bold;
+							pointer-events: initial;
+							display: flex;
+							width: 2rem;
+							height: 2rem;
+
+							.icon {
+								color: $dark;
+								margin: auto;
+								line-height: 2rem;
+							}
+
+							&:hover {
+								background: $grey-100;
+							}
+						}
 					}
 				}
-			} /* .project-details */
+			} /* .project-gallery */
 		} /* .project-item */
 	} /* .projects-list  */
 } /* .projects-page  */

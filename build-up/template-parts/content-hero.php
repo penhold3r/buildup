@@ -21,16 +21,16 @@
    ?>
 
    <div class="hero__content" data-aos="fade-right">
-      <div class="content-text" data-aos="fade-right" data-aos-delay="300">
-         <h2>
-            <?php echo $hero['hero_text'] ?>
-         </h2>
+      <div class="content-text border-cut--light-right" data-aos="fade-right" data-aos-delay="300">
+
+         <?php echo $hero['hero_text'] ?>
+
       </div>
    </div>
 
    <div class="hero__scroll">
       <a href="#nosotros" class="scroll">
-         <i class="icon icon-arrow-right"></i>
+         <i class="icon icon-chev-right"></i>
          <span>Scroll</span>
       </a>
    </div>

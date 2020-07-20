@@ -32,6 +32,10 @@
 		.navigation {
 			padding: 0 1rem 0 0;
 
+			@include tablet {
+				display: none;
+			}
+
 			.nav-list {
 				display: flex;
 

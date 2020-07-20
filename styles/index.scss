@@ -1,5 +1,6 @@
 @import '~sanitize.css/sanitize.css';
 @import './includes/*.scss';
+@import './utils/*.scss';
 /******************************************************
 *                    SOME FIXES
 ******************************************************/
@@ -36,7 +37,7 @@ body {
 }
 
 body {
-	background: #fff;
+	background: white;
 	color: $dark;
 	font-family: $main-font;
 	font-weight: $regular;
@@ -45,6 +46,10 @@ body {
 
 	main {
 		overflow-x: hidden;
+
+		&.blurred {
+			filter: blur(3px);
+		}
 	}
 
 	h1,
@@ -87,4 +92,5 @@ body {
 /******************************************************
 *                    MODULES
 ******************************************************/
+
 @import './modules/*.scss';

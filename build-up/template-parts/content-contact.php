@@ -11,7 +11,7 @@
 
 <section class="contact-page">
 
-   <header class="contact-page__header">
+   <header class="contact-page__header" data-aos="fade-left">
       <?php the_title('<h2 class="contact-title">', '</h2>') ?>
 
       <div class="contact-info">
@@ -21,7 +21,7 @@
    </header> <!-- .contact-page__header -->
 
    <div class="contact-page__content">
-      <div class="form-container">
+      <div class="form-container border-cut--secondary-grey-top" data-aos="fade-right">
 
          <?php
 
@@ -66,7 +66,6 @@
                   'required' => true,
                   'submit_value' => 'Enviar',
                   'submit_class' => 'contact-form__submit button',
-                  'submit_content_before' => '<i class="icon icon-arrow-right"></i>',
                   'form_after' => '<div class="output-msg"><p></p></div>'
                )
              );

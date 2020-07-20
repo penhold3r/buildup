@@ -23,7 +23,6 @@
 		}
 
 		.content-text {
-			border: 1px solid $light;
 			margin: 0 auto;
 			max-width: $max-width;
 			padding: 2rem 3rem;
@@ -31,13 +30,16 @@
 			width: 100%;
 			z-index: 1;
 
-			h2 {
+			p {
 				color: $light;
-				font-size: 3rem;
+				font-size: 2.5rem;
 				line-height: 1.1;
-				font-weight: bold;
 				margin: 0;
-				width: 70%;
+				width: 50%;
+
+				* {
+					display: block;
+				}
 			}
 		}
 	}
@@ -49,12 +51,22 @@
 		top: 0;
 		width: 55%;
 		z-index: 0;
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+		transition: all 0.6s ease-in-out 0.3s;
+
+		@include tablet {
+			clip-path: none;
+		}
 
 		img {
 			height: 100%;
 			object-fit: cover;
 			opacity: 0.6 !important;
 			width: 100%;
+		}
+
+		&.aos-animate {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 		}
 	}
 

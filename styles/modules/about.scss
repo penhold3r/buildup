@@ -1,5 +1,6 @@
 .about-page {
 	position: relative;
+	overflow: hidden;
 
 	&__header {
 		background: linear-gradient($dark, $primary-grey);
@@ -21,7 +22,7 @@
 				object-fit: cover;
 				width: 100%;
 			}
-		}
+		} /* .acf-image */
 
 		.header-content {
 			align-self: flex-end;
@@ -53,25 +54,36 @@
 			}
 
 			.about-text {
-				border: 1px solid $light;
+				align-items: center;
+				display: flex;
 				font-size: 1.25rem;
 				margin: 1rem auto;
 				max-width: $max-width;
-				padding: 2rem;
 				position: relative;
 				z-index: 2;
 
 				p {
-					//@extend .bold;
-
-					padding-right: 2rem;
+					padding: 3rem;
 					width: 50%;
 					margin: 0;
-					text-align: justify;
+
+					&:first-of-type {
+						@extend .bold;
+
+						color: $light;
+						letter-spacing: 0.1rem;
+						text-transform: uppercase;
+					}
+
+					strong {
+						display: block;
+						letter-spacing: 0.1rem;
+						text-transform: uppercase;
+					}
 				}
-			}
-		}
-	}
+			} /* .about-text */
+		} /* .header-content */
+	} /* __header */
 
 	&__mission,
 	&__clients {
@@ -83,28 +95,44 @@
 
 		.mission-content,
 		.clients-content {
-			border: 1px solid $secondary-color;
+			//border: 1px solid $secondary-color;
 			max-width: $max-width;
 			padding: 3rem calc(50% + 2rem) 3rem 3rem;
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
-			width: 100%;
+			width: calc(100% - 2rem);
 			z-index: 1;
 
 			.mission-text,
 			.clients-text {
 				padding-right: 3rem;
 				margin: 0 0 1rem;
+				text-align: right;
 				width: 100%;
 
-				p {
-					color: $grey-700;
-					font-size: 1.25rem;
-					margin: 0;
+				h1,
+				h2,
+				h3,
+				h4 {
+					color: $secondary-color;
+					font-size: 1.5rem;
+					letter-spacing: 0.1rem;
+					line-height: 1;
+					margin: 0 0 1rem;
+					text-transform: uppercase;
 				}
-			}
-		}
+
+				p {
+					color: $secondary-color;
+					font-size: 1.25rem;
+					letter-spacing: 0.1rem;
+					line-height: 1.2;
+					margin: 0;
+					text-transform: uppercase;
+				}
+			} /* mission/clients -text */
+		} /* __mission/__clients -content*/
 
 		.acf-image {
 			position: relative;
@@ -115,10 +143,11 @@
 				background: $gradient;
 				content: '';
 				height: 100%;
-				left: -2rem;
+				left: 0;
 				mix-blend-mode: multiply;
 				position: absolute;
-				top: 2rem;
+				top: 0;
+				transition: all 0.5s ease-in 0.5s;
 				width: 100%;
 				z-index: 5;
 			}
@@ -139,8 +168,17 @@
 			&.loaded {
 				overflow: initial;
 			}
+		} /* .acf-image */
+
+		&.aos-animate {
+			.acf-image {
+				&:before {
+					left: -2rem;
+					top: 2rem;
+				}
+			}
 		}
-	}
+	} /* __mission/__clients */
 
 	&__clients {
 		margin: 24rem auto 6rem;
@@ -158,10 +196,11 @@
 		}
 
 		.acf-image {
-			bottom: 0;
+			bottom: -4rem;
 			left: 0;
 			position: absolute;
 			transform: translateX(0);
+			transition: all 0.7s ease-in-out 0.5s;
 			width: 50%;
 
 			&:before {
@@ -178,26 +217,36 @@
 			position: relative;
 			top: 0;
 			transform: translateY(0);
+			width: 100%;
 
 			.clients-text {
 				margin: 0;
 				padding: 0;
+				text-align: left;
+				overflow: hidden;
 
 				p {
-					color: $secondary-color;
+					color: $light;
+					text-transform: none;
 				}
+			}
+		}
+
+		&.aos-animate {
+			.acf-image {
+				bottom: 0;
 			}
 		}
 	}
 
 	&__closing {
 		background: $light;
-		margin: 12rem auto;
+		margin: 14rem auto;
 		padding: 0 1rem;
 
 		.closing-content {
 			align-items: center;
-			border: 3px solid $secondary-grey;
+			//border: 3px solid $secondary-grey;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -209,12 +258,17 @@
 			width: 100%;
 
 			p {
-				font-size: 2.5rem;
+				font-size: 2rem;
+				letter-spacing: 0.1rem;
 				margin: 0;
 				text-align: center;
+				text-transform: uppercase;
 
 				&:first-of-type {
 					color: $primary-color;
+					font-size: 2.25rem;
+					letter-spacing: normal;
+					text-transform: none;
 				}
 			}
 

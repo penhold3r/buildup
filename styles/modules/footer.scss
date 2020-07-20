@@ -26,7 +26,7 @@
 							text-transform: uppercase;
 
 							&:hover {
-								text-decoration: underline;
+								color: $secondary-color !important;
 							}
 
 							&:active,
@@ -60,7 +60,7 @@
 					.link {
 						display: flex;
 						color: $light;
-						border: 1px solid $light;
+						border: 1px solid $secondary-color;
 						text-decoration: none;
 						transition: all 0.3s;
 						padding: 0.25rem;
@@ -72,8 +72,7 @@
 						}
 
 						&:hover {
-							border-color: $secondary-color;
-							color: $secondary-color;
+							background: $secondary-color;
 						}
 					}
 				}

@@ -1,0 +1,85 @@
+@mixin border-cut($color, $direction) {
+	border-color: $color;
+	border-#{$direction}: none;
+
+	&:before {
+		content: '';
+		position: absolute;
+	}
+
+	@if $direction == top {
+		&:before {
+			background: linear-gradient(
+				90deg,
+				$color,
+				$color 30%,
+				transparent 30%,
+				transparent 70%,
+				$color 70%
+			);
+			height: 1px;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+	}
+	@if $direction == right {
+		&:before {
+			background: linear-gradient(
+				$color,
+				$color 30%,
+				transparent 30%,
+				transparent 70%,
+				$color 70%
+			);
+			height: 100%;
+			right: 0;
+			top: 0;
+			width: 1px;
+		}
+	}
+	@if $direction == bottom {
+		&:before {
+			background: linear-gradient(
+				90deg,
+				$color,
+				$color 30%,
+				transparent 30%,
+				transparent 70%,
+				$color 70%
+			);
+			height: 1px;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		}
+	}
+	@if $direction == left {
+		&:before {
+			background: linear-gradient(
+				$color,
+				$color 30%,
+				transparent 30%,
+				transparent 70%,
+				$color 70%
+			);
+			height: 100%;
+			left: 0;
+			top: 0;
+			width: 1px;
+		}
+	}
+}
+
+$directions: 'top', 'right', 'bottom', 'left';
+
+@each $name, $hex in $colors {
+	@each $dir in $directions {
+		.border-cut--#{$name}-#{$dir} {
+			border: 1px solid transparent;
+			position: relative;
+
+			@include border-cut($hex, $dir);
+		}
+	}
+}

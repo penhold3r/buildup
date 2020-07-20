@@ -31,6 +31,15 @@
       <header class="site-header">
          <div class="site-header__content">
 
+            <input type="checkbox" name="menutoggle" class="hidden">
+            <label class="mobile-menu" for="menutoggle" title="menú">
+               <div class="bars">
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+               </div>
+            </label>
+
             <h1 class="site-logo" data-aos="fade-up"><?php the_custom_logo(); ?>
             </h1>
 
@@ -49,10 +58,6 @@
                ));
 
             ?>
-
-            <div class="mobile-menu" aria-role="button" title="menú">
-
-            </div>
 
          </div><!-- .site-header__content-->
 

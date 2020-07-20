@@ -48,6 +48,7 @@
 		flex-direction: column;
 		height: 100%;
 		left: 0;
+		padding: 0 1rem;
 		position: absolute;
 		top: 0;
 		width: 100%;
@@ -74,7 +75,7 @@
 
 		&.aos-animate {
 			.about-text {
-				border-color: $light;
+				@extend .border-cut--light-bottom;
 				max-width: $max-width;
 			}
 		}

@@ -24,6 +24,25 @@ $grey-900: darken($grey, 25%);
 
 $gradient: linear-gradient(45deg, $primary-color, $secondary-color);
 
+$colors: (
+	primary: $primary-color,
+	primary-grey: $primary-grey,
+	secondary: $secondary-color,
+	secondary-grey: $secondary-grey,
+	light: $light,
+	dark: $dark,
+	grey: $grey,
+	grey-100: $grey-100,
+	grey-200: $grey-200,
+	grey-300: $grey-300,
+	grey-400: $grey-400,
+	grey-500: $grey,
+	grey-600: $grey-600,
+	grey-700: $grey-700,
+	grey-800: $grey-800,
+	grey-900: $grey-900,
+);
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300;1,600&display=swap');
 $main-font: 'Montserrat', 'Trebuchet MS', sans-serif;
 

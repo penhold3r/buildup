@@ -21,23 +21,29 @@ const galleryEvents = gallery => {
 	let count = 1
 	let percentage = 0
 
+	let imgWidth = getComputedStyle(document.documentElement).getPropertyValue('--th-width')
+
+	console.log(imgWidth)
+
+	for (let img of imgs) {
+		img.addEventListener('click', e => galleryModal(e, gallery))
+	}
+
 	next.addEventListener('click', () => {
 		if (rest < view) return
-		percentage = -18 * count
+		percentage = imgWidth * -100 * count
 		slider.style.left = percentage + '%'
 		count++
-		rest = rest - view * 0.18
+		rest = rest - view * imgWidth
 	})
 
 	prev.addEventListener('click', () => {
 		if (percentage >= 0) return
-		percentage = percentage + 18
+		percentage = percentage + imgWidth * 100
 		slider.style.left = percentage + '%'
 		count--
-		rest = rest + view * 0.18
+		rest = rest + view * imgWidth
 	})
-
-	for (let img of imgs) img.addEventListener('click', e => galleryModal(e, gallery))
 }
 
 const galleryModal = (e, gallery) => {

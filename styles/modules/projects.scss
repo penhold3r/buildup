@@ -17,13 +17,20 @@
 		padding: 0 1rem;
 		margin: 0 0 6rem;
 
+		@include tablet {
+			margin: 0 0 1rem;
+		}
+
 		.header-content {
-			//border: 1px solid $grey;
 			margin: 0 auto;
 			max-width: $max-width;
 			padding: 3rem;
 			position: relative;
 			width: 100%;
+
+			@include tablet {
+				padding: 1.5rem;
+			}
 
 			.projects-title {
 				color: $light;
@@ -43,11 +50,19 @@
 				top: -15%;
 				width: 50%;
 				z-index: -1;
+
+				@include tablet {
+					width: 80%;
+				}
 			} /* after  */
 
 			.projects-intro {
 				margin: 0 auto;
 				width: 70%;
+
+				@include tablet {
+					width: 100%;
+				}
 
 				p {
 					font-size: 1.25rem;
@@ -56,6 +71,10 @@
 					margin: 0;
 					text-align: center;
 					text-transform: uppercase;
+
+					@include tablet {
+						font-size: 1rem;
+					}
 
 					strong {
 						display: block;
@@ -142,8 +161,22 @@
 							left: 0;
 
 							.image-block {
+								@at-root {
+									:root {
+										--th-width: 0.18;
+									}
+								}
+
+								@include tablet {
+									@at-root {
+										:root {
+											--th-width: 0.33;
+										}
+									}
+								}
+
 								cursor: pointer;
-								min-width: 18%;
+								min-width: calc(100% * var(--th-width));
 								transition: all 0.3s;
 
 								img {

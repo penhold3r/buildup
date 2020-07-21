@@ -11,10 +11,6 @@
 	width: 100%;
 	z-index: 90;
 
-	@include tablet {
-		top: 60px;
-	}
-
 	.inner-modal {
 		align-self: center;
 		background: rgba(0, 0, 0, 0.3);

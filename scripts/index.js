@@ -13,7 +13,7 @@ import domReady from './utils/dom-ready'
 // modules
 //import onScroll from './modules/scroll'
 import imageLoaded from './utils/image-loaded'
-//import mobileMenu from './modules/header'
+import mobileMenu from './modules/header'
 //import contact from './modules/contact'
 //import suscribe from './modules/suscribe'
 import Gallery from './modules/gallery'
@@ -50,6 +50,7 @@ domReady(() => {
 		anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 	})
 
+	mobileMenu()
 	Gallery()
 })
 //--------------------------------------------------------

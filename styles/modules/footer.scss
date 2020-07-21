@@ -11,12 +11,25 @@
 			display: flex;
 			justify-content: space-between;
 
+			@include tablet {
+				flex-direction: column;
+			}
+
 			.footer-navigation {
 				.nav-list {
 					display: flex;
 
+					@include tablet {
+						justify-content: center;
+						flex-wrap: wrap;
+					}
+
 					.menu-item {
 						margin: 0 1rem 0 0;
+
+						@include tablet {
+							margin: 0.5rem 1rem;
+						}
 
 						a {
 							color: $light;
@@ -43,11 +56,22 @@
 				justify-content: flex-end;
 				align-items: center;
 
+				@include tablet {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
 				.email-link {
 					color: $light;
 					margin: 0 1rem 0 0;
 					text-decoration: none;
 					transition: all 0.3s;
+
+					@include tablet {
+						margin: 1rem 0 2rem;
+						text-align: center;
+						width: 100%;
+					}
 
 					&:hover {
 						color: $secondary-color;

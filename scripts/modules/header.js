@@ -1,10 +1,11 @@
 const mobileMenu = () => {
 	const menu = document.querySelector('.mobile-menu')
+	const toggle = document.querySelector('.menutoggle')
 	const sideNav = document.querySelector('.navigation')
 	const links = document.querySelectorAll('.menu-item a')
 
-	menu &&
-		menu.addEventListener('click', e => {
+	toggle &&
+		toggle.addEventListener('click', e => {
 			console.log('mobile')
 			menu.classList.toggle('crossed')
 			sideNav.classList.toggle('expanded')
@@ -15,6 +16,7 @@ const mobileMenu = () => {
 			link.addEventListener('click', () => {
 				menu.classList.toggle('crossed')
 				sideNav.classList.toggle('expanded')
+				toggle.checked = false
 			})
 		})
 }

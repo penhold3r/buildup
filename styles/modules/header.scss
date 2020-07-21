@@ -18,6 +18,11 @@
 			padding: 1rem;
 			width: 90px;
 
+			@include tablet {
+				margin: 0;
+				width: 70px;
+			}
+
 			a {
 				display: flex;
 				text-decoration: none;
@@ -33,11 +38,24 @@
 			padding: 0 1rem 0 0;
 
 			@include tablet {
-				display: none;
+				background: $dark;
+				position: fixed;
+				top: 0;
+				right: calc(-301px - 4rem);
+				z-index: 7;
+				transition: all 0.5s ease-in-out;
 			}
 
 			.nav-list {
 				display: flex;
+
+				@include tablet {
+					flex-direction: column;
+					padding: 2rem;
+					height: 100vh;
+					width: 300px;
+					justify-content: center;
+				}
 
 				.menu-item {
 					margin: 0.5rem;
@@ -78,8 +96,105 @@
 			}
 		}
 
+		.menutoggle {
+			display: none;
+
+			@include tablet {
+				display: block;
+				background: transparent;
+				position: fixed;
+				height: 45px;
+				width: 50px;
+				top: 1rem;
+				right: 0;
+				z-index: 9;
+				user-select: none;
+				-webkit-touch-callout: none;
+
+				&:checked {
+					~ .shaddow {
+						background: rgba($dark, 0.7);
+						pointer-events: initial;
+					}
+
+					~ label {
+						background: $primary-color;
+
+						.bars {
+							.bar {
+								position: absolute;
+								margin: auto;
+								bottom: 0;
+								top: 0;
+
+								&:first-child {
+									transform: rotate(45deg);
+									transform-origin: center;
+								}
+								&:last-child {
+									transform: rotate(-45deg);
+									transform-origin: center;
+								}
+
+								&:nth-child(2) {
+									opacity: 0;
+								}
+							}
+						}
+					}
+
+					~ .navigation {
+						right: 0;
+					}
+				}
+			}
+		}
+
+		.shaddow {
+			@include tablet {
+				position: fixed;
+				background: rgba($dark, 0);
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 6;
+				transition: all 0.3s;
+				pointer-events: none;
+			}
+		}
+
 		.mobile-menu {
 			display: none;
+
+			@include tablet {
+				display: block;
+				background: $dark;
+				position: fixed;
+				height: 45px;
+				width: 50px;
+				top: 1rem;
+				right: 0;
+				padding: 1rem;
+				z-index: 8;
+				transition: all 0.3s;
+
+				.bars {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					position: relative;
+					height: 100%;
+					width: 100%;
+
+					.bar {
+						height: 3px;
+						background: $light;
+						width: 100%;
+						transition: all 0.3s;
+					}
+				}
+			}
 		}
 	}
 }

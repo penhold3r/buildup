@@ -10,12 +10,25 @@
 		max-height: 700px;
 		position: relative;
 
+		@include tablet {
+			background: $dark;
+			padding-bottom: 2rem;
+			flex-direction: column;
+			height: auto;
+			max-height: auto;
+		}
+
 		.acf-image {
 			height: 100%;
 			opacity: 0.5;
 			position: absolute;
 			width: 100%;
 			z-index: 0;
+
+			@include tablet {
+				position: relative;
+				height: 250px;
+			}
 
 			img {
 				height: 100%;
@@ -31,6 +44,10 @@
 			width: 100%;
 			z-index: 2;
 
+			@include tablet {
+				padding: 0 0.5rem;
+			}
+
 			&:before {
 				background: $gradient;
 				content: '';
@@ -40,6 +57,13 @@
 				top: -15%;
 				width: 50%;
 				z-index: 1;
+
+				@include tablet {
+					height: calc(100% + 2rem);
+					top: -2rem;
+					width: calc(100% - 2rem);
+					left: 1rem;
+				}
 			}
 
 			.about-title {
@@ -51,6 +75,12 @@
 				position: relative;
 				width: 100%;
 				z-index: 2;
+
+				@include tablet {
+					font-size: 1.5rem;
+					text-align: center;
+					padding: 0;
+				}
 			}
 
 			.about-text {
@@ -62,10 +92,21 @@
 				position: relative;
 				z-index: 2;
 
+				@include tablet {
+					flex-direction: column;
+					font-size: 1rem;
+				}
+
 				p {
 					padding: 3rem;
 					width: 50%;
 					margin: 0;
+
+					@include tablet {
+						padding: 1rem 1.5rem;
+						text-align: center;
+						width: 100%;
+					}
 
 					&:first-of-type {
 						@extend .bold;
@@ -93,9 +134,14 @@
 		position: relative;
 		width: 100%;
 
+		@include tablet {
+			display: flex;
+			flex-direction: column-reverse;
+			margin: 3rem auto;
+		}
+
 		.mission-content,
 		.clients-content {
-			//border: 1px solid $secondary-color;
 			max-width: $max-width;
 			padding: 3rem calc(50% + 2rem) 3rem 3rem;
 			position: absolute;
@@ -104,12 +150,25 @@
 			width: calc(100% - 2rem);
 			z-index: 1;
 
+			@include tablet {
+				position: relative;
+				width: 100%;
+				top: -2rem;
+				transform: none;
+				padding: 5rem 1.25rem 1.25rem;
+			}
+
 			.mission-text,
 			.clients-text {
 				padding-right: 3rem;
 				margin: 0 0 1rem;
 				text-align: right;
 				width: 100%;
+
+				@include tablet {
+					padding: 0;
+					text-align: center;
+				}
 
 				h1,
 				h2,
@@ -121,6 +180,10 @@
 					line-height: 1;
 					margin: 0 0 1rem;
 					text-transform: uppercase;
+
+					@include tablet {
+						font-size: 1.25rem;
+					}
 				}
 
 				p {
@@ -130,6 +193,10 @@
 					line-height: 1.2;
 					margin: 0;
 					text-transform: uppercase;
+
+					@include tablet {
+						font-size: 1rem;
+					}
 				}
 			} /* mission/clients -text */
 		} /* __mission/__clients -content*/
@@ -138,6 +205,12 @@
 			position: relative;
 			transform: translateX(calc(100% + 1rem));
 			width: 50%;
+
+			@include tablet {
+				transform: translateX(calc(-50% - 1rem));
+				width: calc(80% - 1rem);
+				left: 50%;
+			}
 
 			&:before {
 				background: $gradient;
@@ -150,6 +223,11 @@
 				transition: all 0.5s ease-in 0.5s;
 				width: 100%;
 				z-index: 5;
+
+				@include tablet {
+					top: 1rem;
+					left: 1rem;
+				}
 			}
 
 			.bg-placeholder-img {
@@ -183,16 +261,26 @@
 	&__clients {
 		margin: 24rem auto 6rem;
 
+		@include tablet {
+			margin: 3rem auto;
+			flex-direction: column;
+		}
+
 		&:after {
 			background: $dark;
 			content: '';
-			height: calc(100% + 4rem);
+			height: calc(100%);
 			left: 50%;
 			position: absolute;
 			top: -2rem;
 			transform: translateX(-50%);
 			width: 100vw;
 			z-index: -1;
+
+			@include tablet {
+				height: 100%;
+				top: 0;
+			}
 		}
 
 		.acf-image {
@@ -202,6 +290,14 @@
 			transform: translateX(0);
 			transition: all 0.7s ease-in-out 0.5s;
 			width: 50%;
+
+			@include tablet {
+				position: relative;
+				width: calc(100% - 2rem);
+				left: 1rem;
+				bottom: auto;
+				top: -4rem;
+			}
 
 			&:before {
 				content: none;
@@ -219,15 +315,28 @@
 			transform: translateY(0);
 			width: 100%;
 
+			@include tablet {
+				padding: 4rem 1rem 3rem;
+				top: -6rem;
+			}
+
 			.clients-text {
 				margin: 0;
 				padding: 0;
 				text-align: left;
 				overflow: hidden;
 
+				@include tablet {
+					text-align: center;
+				}
+
 				p {
 					color: $light;
 					text-transform: none;
+
+					@include tablet {
+						text-align: center;
+					}
 				}
 			}
 		}
@@ -244,9 +353,12 @@
 		margin: 14rem auto;
 		padding: 0 1rem;
 
+		@include tablet {
+			margin: 5rem auto 3rem;
+		}
+
 		.closing-content {
 			align-items: center;
-			//border: 3px solid $secondary-grey;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -257,6 +369,10 @@
 			top: -2rem;
 			width: 100%;
 
+			@include tablet {
+				padding: 4rem 1rem;
+			}
+
 			p {
 				font-size: 2rem;
 				letter-spacing: 0.1rem;
@@ -264,11 +380,19 @@
 				text-align: center;
 				text-transform: uppercase;
 
+				@include tablet {
+					font-size: 1.25rem;
+				}
+
 				&:first-of-type {
 					color: $primary-color;
 					font-size: 2.25rem;
 					letter-spacing: normal;
 					text-transform: none;
+
+					@include tablet {
+						font-size: 1.5rem;
+					}
 				}
 			}
 

@@ -13,6 +13,10 @@
 			position: relative;
 			text-align: center;
 
+			@include tablet {
+				font-size: 1.5rem;
+			}
+
 			* {
 				position: relative;
 				z-index: 1;

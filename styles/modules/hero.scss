@@ -4,44 +4,10 @@
 	height: 100vh;
 	position: relative;
 
-	&__content {
-		margin: auto 0;
-		padding: 0 1rem;
-		position: relative;
-		width: 100%;
-		z-index: 1;
-
-		&:before {
-			background: $gradient;
-			content: '';
-			height: 130%;
-			left: 0;
-			position: absolute;
-			top: -15%;
-			width: 50%;
-			z-index: 0;
-		}
-
-		.content-text {
-			margin: 0 auto;
-			max-width: $max-width;
-			padding: 2rem 3rem;
-			position: relative;
-			width: 100%;
-			z-index: 1;
-
-			p {
-				color: $light;
-				font-size: 2.5rem;
-				line-height: 1.1;
-				margin: 0;
-				width: 50%;
-
-				* {
-					display: block;
-				}
-			}
-		}
+	@include tablet {
+		flex-direction: column;
+		padding: 300px 0 2rem;
+		min-height: 500px;
 	}
 
 	.acf-image {
@@ -56,6 +22,8 @@
 
 		@include tablet {
 			clip-path: none;
+			width: 70%;
+			height: 400px;
 		}
 
 		img {
@@ -70,7 +38,67 @@
 		}
 	}
 
+	&__content {
+		margin: auto 0;
+		padding: 0 1rem;
+		position: relative;
+		width: 100%;
+		z-index: 1;
+
+		@include tablet {
+			margin: 0;
+			top: -2rem;
+		}
+
+		&:before {
+			background: $gradient;
+			content: '';
+			height: 130%;
+			left: 0;
+			position: absolute;
+			top: -15%;
+			width: 50%;
+			z-index: 0;
+
+			@include tablet {
+				width: 70%;
+			}
+		}
+
+		.content-text {
+			margin: 0 auto;
+			max-width: $max-width;
+			padding: 2rem 3rem;
+			position: relative;
+			width: 100%;
+			z-index: 1;
+
+			@include tablet {
+				padding: 1.75rem;
+			}
+
+			p {
+				color: $light;
+				font-size: 2.5rem;
+				line-height: 1.1;
+				margin: 0;
+				width: 50%;
+
+				@include tablet {
+					font-size: 2rem;
+					text-align: center;
+					width: 100%;
+				}
+
+				* {
+					display: block;
+				}
+			}
+		}
+	}
+
 	&__scroll {
+		display: flex;
 		position: absolute;
 		bottom: 5rem;
 		left: 1rem;
@@ -78,10 +106,19 @@
 		margin: 0 auto;
 		right: 1rem;
 
+		@include tablet {
+			bottom: 1rem;
+			margin: auto 0 0;
+		}
+
 		.scroll {
 			display: inline-flex;
 			text-decoration: none;
 			align-items: center;
+
+			@include tablet {
+				margin: auto;
+			}
 
 			&:hover {
 				opacity: 0.8;

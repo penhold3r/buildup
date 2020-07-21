@@ -5,6 +5,10 @@
 	position: relative;
 	width: 100%;
 
+	@include tablet {
+		margin: 3rem auto;
+	}
+
 	.acf-image {
 		height: 300px;
 		left: 50%;
@@ -13,6 +17,14 @@
 		transform: translateY(-50%) translateX(-100%);
 		width: calc(#{$max-width} * 0.3); // 30%
 		z-index: 0;
+
+		@include tablet {
+			position: relative;
+			top: 0;
+			transform: translateX(calc(-50% - 0.5rem));
+			width: 80%;
+			height: 200px;
+		}
 
 		&:before {
 			background: $gradient;
@@ -25,6 +37,11 @@
 			top: 0;
 			width: 100%;
 			z-index: 5;
+
+			@include tablet {
+				left: 1rem;
+				top: 1rem;
+			}
 		}
 
 		.bg-placeholder-img {
@@ -52,9 +69,20 @@
 		position: relative;
 		width: 100%;
 
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			overflow: initial;
+			padding: 2.5rem 1.5rem;
+		}
+
 		.projects-text {
 			margin: 0 0 1rem;
 			width: 70%;
+
+			@include tablet {
+				width: 100%;
+			}
 
 			h1,
 			h2,
@@ -66,6 +94,10 @@
 				font-size: 1.75rem;
 				margin: 0 0 1rem;
 				letter-spacing: 0.1rem;
+
+				@include tablet {
+					font-size: 1.25rem;
+				}
 			}
 
 			p {
@@ -74,12 +106,20 @@
 				text-transform: uppercase;
 				letter-spacing: 0.1rem;
 				line-height: 1;
+
+				@include tablet {
+					font-size: 1rem;
+				}
 			}
 		} /* .projects-text */
 
 		.button {
 			display: inline-block;
 			margin-top: 1rem;
+
+			@include tablet {
+				margin: 1rem 1rem 1rem auto;
+			}
 		}
 
 		&:after {
@@ -92,6 +132,11 @@
 			position: absolute;
 			top: 0;
 			width: 100%;
+
+			@include tablet {
+				border: 1px solid $secondary-color;
+				top: -2rem;
+			}
 		}
 	} /* __content */
 

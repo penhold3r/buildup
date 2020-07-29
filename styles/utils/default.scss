@@ -1,0 +1,158 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: $bold;
+	hyphens: none !important;
+	margin: 0 0 1rem;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+hr {
+	background: $grey-100;
+	border: none;
+	height: 1px;
+}
+
+ul,
+ol {
+	margin: 0 0 1rem;
+	padding: 0 0 0 1.5rem;
+}
+
+strong,
+b,
+.bold {
+	font-weight: bold;
+	font-weight: $bold;
+}
+
+input,
+textarea,
+select {
+	border-radius: 0;
+	font-family: $main-font;
+	font-size: 1rem;
+}
+
+.post-img {
+	margin: 0 0 1rem;
+	width: 100%;
+
+	img {
+		display: block;
+		height: auto;
+		width: 100%;
+	}
+}
+
+figure.wp-caption {
+	margin: 0 0 1rem;
+	width: 100%;
+
+	.post-img {
+		margin: 0;
+	}
+
+	figcaption {
+		background: $grey-100;
+		font-size: 0.8em;
+		padding: 0.5rem 0.75rem;
+	}
+}
+
+.hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+article.default-content {
+	background: white;
+	margin: 150px auto;
+	max-width: $max-width;
+	position: relative;
+	padding: 2.5rem;
+	border: 1px solid $secondary-color;
+	width: calc(100% - 2rem);
+
+	&:before {
+		content: '';
+		background: $dark;
+		position: absolute;
+		height: 250px;
+		width: 100vw;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: -1;
+		top: -150px;
+	}
+
+	@include tablet {
+		margin: 100px auto;
+
+		&:before {
+			top: -100px;
+			height: 200px;
+		}
+	}
+
+	.page-title {
+		text-align: center;
+		color: $primary-color;
+		margin: 0 0 3rem;
+	}
+} /* .default-content */
+
+.buttons {
+	padding: 4rem 0;
+
+	h3 {
+		text-align: center;
+		margin: 0 0 3rem;
+	}
+
+	.buttons-group {
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 1rem;
+
+		a {
+			margin: 0.5rem;
+		}
+	}
+}
+
+.colors {
+	padding: 4rem;
+
+	h3 {
+		width: 100%;
+		text-align: center;
+	}
+
+	@each $name, $hex in $colors {
+		.bg-#{$name} {
+			background: $hex;
+			padding: 3rem;
+
+			@if (lightness($hex) > 55) {
+				color: $dark;
+			} @else {
+				color: white;
+			}
+		}
+	}
+}

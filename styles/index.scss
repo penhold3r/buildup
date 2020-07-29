@@ -51,42 +51,6 @@ body {
 			filter: blur(3px);
 		}
 	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-weight: $bold;
-		hyphens: none !important;
-	}
-
-	strong,
-	b,
-	.bold {
-		font-weight: bold;
-		font-weight: $bold;
-	}
-
-	input,
-	textarea,
-	select {
-		border-radius: 0;
-		font-family: $main-font;
-		font-size: 1rem;
-	}
-
-	.hidden {
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		width: 1px;
-	}
 } // body
 
 /******************************************************

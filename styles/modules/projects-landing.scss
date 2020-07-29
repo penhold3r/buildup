@@ -73,7 +73,7 @@
 			display: flex;
 			flex-direction: column;
 			overflow: initial;
-			padding: 2.5rem 1.5rem;
+			padding: 3.5rem 1.5rem;
 		}
 
 		.projects-text {
@@ -88,7 +88,7 @@
 			h2,
 			h3,
 			h4 {
-				color: $primary-color;
+				color: $secondary-color;
 				text-transform: uppercase;
 				line-height: 1;
 				font-size: 1.75rem;
@@ -101,7 +101,7 @@
 			}
 
 			p {
-				color: $primary-color;
+				color: $dark;
 				font-size: 1.25rem;
 				text-transform: uppercase;
 				letter-spacing: 0.1rem;
@@ -114,7 +114,6 @@
 		} /* .projects-text */
 
 		.button {
-			display: inline-block;
 			margin-top: 1rem;
 
 			@include tablet {

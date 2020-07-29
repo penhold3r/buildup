@@ -8,37 +8,35 @@ const contact = () => {
 
 const initForm = form => {
 	const settings = {
-		dest: theme.themeURL + '/email-sender.php',
+		dest: theme.adminAjax,
 		fields: '.form-field',
 		reciever: form.dataset.recip || 'penhold3r@gmail.com',
 		urlencoded: true,
+		wpAction: 'submit_form',
 	}
 
-	if (form) {
-		const { validate, send } = submitFormData(form, settings)
+	form.addEventListener('submit', e => {
+		e.preventDefault()
 
-		form.addEventListener('submit', e => {
-			e.preventDefault()
+		const msg = form.querySelector('.output-msg')
 
-			const msg = form.querySelector('.output-msg')
-			const { valid, field } = validate()
+		msg.querySelector('p').innerHTML = 'Enviando...'
+		msg.classList.add('visible')
 
-			if (valid) {
-				msg.querySelector('p').innerHTML = 'Enviando...'
-				msg.classList.add('visible')
-
-				send()
-					.then(({ ok, data }) => ok && contactResp(msg, data.name, ok))
-					.catch(({ ok, data, valid }) => {
-						console.error(data)
-						valid && contactResp(msg, data.name, ok)
-					})
-			} else {
-				console.warn(valid, field)
-				field.classList.add('invalid')
-			}
-		})
-	}
+		submitFormData(form, settings)
+			.then(({ data: { success, data } }) => {
+				success && contactResp(msg, data.name, success)
+			})
+			.catch(({ ok, data, valid }) => {
+				console.warn(ok, valid, data)
+				ok && contactResp(msg, data.name, ok)
+				if (!valid) {
+					msg.querySelector('p').innerHTML = ''
+					msg.classList.remove('visible')
+					data.field.classList.add('invalid')
+				}
+			})
+	})
 }
 
 const contactResp = (msg, name, ok) => {
@@ -47,7 +45,7 @@ const contactResp = (msg, name, ok) => {
 		? `${name}, gracias por comunicarte con nosotros, te responderemos a la brevedad.`
 		: `${name}, algo parece haber salido mal, intenta luego más tarde.`
 
-	msgClose.classList.add('close-form-msg')
+	msgClose.classList.add('button--outline--light', 'close-form-msg')
 	msgClose.innerHTML = 'Enviar otro mensaje'
 	msg.appendChild(msgClose)
 	msgClose.addEventListener('click', e => msg.classList.remove('visible'))

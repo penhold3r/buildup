@@ -4,6 +4,9 @@ $primary-grey: lighten(desaturate($primary-color, 75%), 10%);
 $secondary-color: #00e6ff;
 $secondary-grey: lighten(desaturate($secondary-color, 75%), 10%);
 
+$accent-color: #02ffc0;
+$accent-grey: lighten(desaturate($accent-color, 75%), 10%);
+
 // $light: lighten(desaturate($primary-color, 91%), 55%);
 $light: #e6ffff;
 
@@ -29,6 +32,8 @@ $colors: (
 	primary-grey: $primary-grey,
 	secondary: $secondary-color,
 	secondary-grey: $secondary-grey,
+	accent: $accent-color,
+	accent-grey: $accent-grey,
 	light: $light,
 	dark: $dark,
 	grey: $grey,

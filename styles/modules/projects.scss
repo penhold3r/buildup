@@ -156,11 +156,30 @@
 
 						.slider {
 							display: flex;
-							transition: all 0.3s;
-							position: relative;
 							left: 0;
+							position: relative;
+							transition: all 0.3s;
 
 							.image-block {
+								cursor: pointer;
+								height: 150px;
+								min-width: calc(100% * var(--th-width));
+								overflow: hidden;
+								position: relative;
+								transition: all 0.4s;
+
+								&:before {
+									content: '';
+									position: absolute;
+									top: 0;
+									left: 0;
+									height: 100%;
+									width: 100%;
+									border: 1px solid transparent;
+									transition: all 0.4s;
+									z-index: 1;
+								}
+
 								@at-root {
 									:root {
 										--th-width: 0.18;
@@ -175,20 +194,29 @@
 									}
 								}
 
-								cursor: pointer;
-								min-width: calc(100% * var(--th-width));
-								transition: all 0.3s;
-
 								img {
 									display: block;
-									height: 150px;
+									height: 100%;
 									object-fit: cover;
 									width: 100%;
 									transition: all 0.4s;
+									transform-origin: center center;
 								}
 
 								&:hover {
 									opacity: 0.8;
+
+									img {
+										transform: scale(1.2);
+									}
+
+									&:before {
+										top: 1rem;
+										left: 1rem;
+										height: calc(100% - 2rem);
+										width: calc(100% - 2rem);
+										border: 1px solid $secondary-color;
+									}
 								}
 							}
 						}

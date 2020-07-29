@@ -19,42 +19,40 @@ const submitFormData = (form, settings) => {
 
 		form.setAttribute('novalidate', '')
 
-		return {
-			validate: () => validate(fields),
-			send: () => send(form, fields, settings),
-		}
+		return send(form, fields, settings)
 	}
 }
 //
 const send = (form, fields, settings) => {
 	const formData = new FormData(form)
-	const opt = { method: 'POST' }
+	const opt = { method: 'POST', credentials: 'same-origin' }
 	//
 	const { valid, field } = validate(fields)
 	//
 	if (settings.name) formData.append('form-name', settings.name)
 	if (settings.reciever) formData.append('dest', settings.reciever)
+	if (settings.wpAction) formData.append('action', settings.wpAction)
 	//
 	opt.headers = {
 		'Content-Type': settings.urlencoded
 			? 'application/x-www-form-urlencoded'
 			: 'application/json',
+		'Cache-Control': 'no-cache',
 	}
 	opt.body = settings.urlencoded ? urlencodeFormData(formData) : formData
 	//
-	devLog('data:', opt)
+	devLog('to send:', opt)
 	//
 	return new Promise((resolve, reject) => {
 		valid
 			? fetch(settings.dest, opt)
-					.then(({ ok }) => {
-						const resp = { ok, data: Object.fromEntries(formData), valid }
-
-						devLog(`${ok ? 'succesful' : 'failed'}`, resp)
+					.then(result => result.json())
+					.then(resp => {
+						devLog('RESPONSE: ', resp)
 
 						form.reset()
 
-						ok ? resolve(resp) : reject(resp)
+						resolve({ ok: true, data: resp, valid })
 					})
 					.catch(error => {
 						reject({ ok: false, data: { error }, valid })

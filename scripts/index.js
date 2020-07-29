@@ -14,9 +14,9 @@ import domReady from './utils/dom-ready'
 //import onScroll from './modules/scroll'
 import imageLoaded from './utils/image-loaded'
 import mobileMenu from './modules/header'
-//import contact from './modules/contact'
+import contact from './modules/contact'
 //import suscribe from './modules/suscribe'
-import Gallery from './modules/gallery'
+import gallery from './modules/gallery'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -51,6 +51,7 @@ domReady(() => {
 	})
 
 	mobileMenu()
-	Gallery()
+	gallery()
+	contact()
 })
 //--------------------------------------------------------

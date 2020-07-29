@@ -5,6 +5,7 @@
 	&:before {
 		content: '';
 		position: absolute;
+		pointer-events: none;
 	}
 
 	@if $direction == top {

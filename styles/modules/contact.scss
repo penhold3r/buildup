@@ -123,6 +123,10 @@
 							resize: vertical;
 						}
 
+						&.invalid {
+							border-color: tomato;
+						}
+
 						@include placeholder {
 							color: $primary-color;
 							font-size: 0.8rem;
@@ -152,6 +156,44 @@
 						align-self: center;
 					}
 				} /* submit  */
+
+				.output-msg {
+					background: $primary-grey;
+					display: flex;
+					flex-direction: column;
+					height: calc(100% - 2rem);
+					left: 1rem;
+					opacity: 0;
+					padding: 2rem;
+					pointer-events: none;
+					position: absolute;
+					top: 1rem;
+					transition: all 0.3s;
+					width: calc(100% - 2rem);
+
+					@include tablet {
+						height: 100%;
+						left: 0;
+						top: 0;
+						width: 100%;
+					}
+
+					&.visible {
+						pointer-events: initial;
+						opacity: 1;
+					}
+
+					p {
+						color: $light;
+						margin: auto;
+						text-align: center;
+					}
+
+					.close-form-msg {
+						cursor: pointer;
+						margin: auto auto 0;
+					}
+				} /* .output-msg  */
 			} /* .contact-form */
 		} /* .form-container  */
 	} /* __content  */

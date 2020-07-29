@@ -4,7 +4,7 @@
 import imageLoaded from '../utils/image-loaded'
 import animationEnded from '../utils/animation-ended'
 
-const Gallery = () => {
+const gallery = () => {
 	const galleries = document.querySelectorAll('.project-gallery')
 
 	if (galleries) for (let gal of galleries) galleryEvents(gal)
@@ -49,9 +49,10 @@ const galleryEvents = gallery => {
 const galleryModal = (e, gallery) => {
 	const img = e.currentTarget.getAttribute('data-full')
 	const template = gallery.querySelector('.gallery-template')
+	const thumbs = Array.from(gallery.querySelectorAll('.image-block'))
 	const imgs = Array.from(gallery.querySelectorAll('.image-block img'))
 	const pageContent = document.querySelector('main.site-main')
-	const index = imgs.indexOf(e.target)
+	const index = thumbs.indexOf(e.currentTarget)
 
 	template.content.querySelector('img').setAttribute('src', img)
 	document.body.insertBefore(template.content.cloneNode(true), pageContent)
@@ -114,4 +115,4 @@ const imageChange = (wrapper, img, url) => {
 	})
 }
 
-export default Gallery
+export default gallery

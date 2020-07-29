@@ -5,9 +5,7 @@
 	&__header {
 		background: linear-gradient($dark, $primary-grey);
 		display: flex;
-		height: 80vh;
-		min-height: 400px;
-		max-height: 700px;
+		height: 450px;
 		position: relative;
 
 		@include tablet {
@@ -187,7 +185,7 @@
 				}
 
 				p {
-					color: $secondary-color;
+					color: $dark;
 					font-size: 1.25rem;
 					letter-spacing: 0.1rem;
 					line-height: 1.2;

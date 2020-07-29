@@ -1,10 +1,52 @@
 .closing-landing {
-	margin-bottom: 6rem;
-	padding: 6rem 1rem;
+	display: flex;
+	height: 450px;
+	overflow: hidden;
+	padding: 0 1rem;
 	position: relative;
+
+	@include phone {
+		height: 300px;
+	}
+
+	.acf-image {
+		height: 100%;
+		left: 0;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 0;
+
+		&:before {
+			background: linear-gradient(white, transparent);
+			content: '';
+			height: 70px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 3;
+		}
+
+		img {
+			display: block;
+			height: 100%;
+			object-fit: cover;
+			object-position: center top;
+			width: 100%;
+		}
+
+		&.aos-animate {
+			opacity: 0.6;
+		}
+	}
 
 	&__text {
 		display: flex;
+		margin: auto;
+		position: relative;
+		z-index: 2;
 
 		p {
 			color: $primary-color;
@@ -12,6 +54,7 @@
 			margin: auto;
 			position: relative;
 			text-align: center;
+			text-shadow: 0 0 5px $light;
 
 			@include tablet {
 				font-size: 1.5rem;

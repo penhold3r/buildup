@@ -5,8 +5,8 @@ const globImporter = require('node-sass-glob-importer')
 module.exports = {
 	entry: './scripts/index.js',
 	output: {
-		filename: 'js/bundle.build-up.js',
-		path: path.resolve(__dirname, './build-up/'),
+		filename: 'js/bundle.buil-up.js',
+		path: path.resolve(__dirname, './buil-up/'),
 		publicPath: './',
 	},
 	module: {
@@ -74,7 +74,7 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'css/style.build-up.css',
+			filename: 'css/style.buil-up.css',
 		}),
 	],
 }

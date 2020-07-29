@@ -4,17 +4,24 @@
 
 	.about-video {
 		background: $dark;
-		height: 100vh;
-		min-height: 550px;
+		height: 500px;
 		overflow: hidden;
 		position: relative;
 		width: 100%;
 		z-index: 1;
 
+		@include tablet {
+			height: 400px;
+		}
+
+		@include phone {
+			height: 250px;
+		}
+
 		&:before {
 			background: $gradient;
 			content: '';
-			height: calc(100% - 6rem);
+			height: calc(100% - 3rem);
 			left: 3rem;
 			mix-blend-mode: multiply;
 			position: absolute;
@@ -22,16 +29,17 @@
 			width: calc(100% - 6rem);
 
 			@include tablet {
-				height: calc(100% - 4rem);
-				width: calc(100% - 4rem);
+				height: calc(100% - 2rem);
+				left: 1rem;
+				top: 1rem;
+				width: calc(100% - 2rem);
 			}
 		}
 
 		video {
-			min-height: 100%;
-			min-width: 100%;
+			width: 100%;
 
-			@include responsive-video;
+			//@include responsive-video;
 		}
 
 		&:after {
@@ -48,39 +56,66 @@
 	}
 
 	.about-text-content {
+		background: $gradient;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		left: 0;
+		margin: 0 auto;
 		padding: 0 1rem;
-		position: absolute;
-		top: 0;
-		width: 100%;
+		position: relative;
+		top: -3rem;
+		width: calc(100% - 6rem);
 		z-index: 2;
 
+		@include tablet {
+			width: calc(100% - 2rem);
+		}
+
 		.about-text {
-			position: relative;
 			border: 1px solid transparent;
-			margin: auto auto 0;
+			margin: 2rem auto 4rem;
 			max-width: 900px;
 			padding: 3rem 0;
+			position: relative;
 			transition: all 0.5s ease-in-out 0.5s;
 			width: 100%;
 			z-index: 2;
 
 			@include tablet {
 				border: 1px solid $light;
+				padding: 3rem 1rem 4rem;
+				margin: 2rem auto;
 			}
 
 			p {
-				color: $light;
+				color: $dark;
 				font-size: 1.25rem;
-				margin: 0 auto 1rem;
+				margin: 0 auto 2rem;
 				max-width: 800px;
 				text-align: center;
 
 				@include tablet {
 					font-size: 1rem;
+				}
+			}
+
+			.post-img {
+				margin: 3rem auto;
+				width: 80px;
+
+				svg {
+					g {
+						* {
+							fill: $dark !important;
+						}
+
+						&#border {
+							* {
+								fill: $light !important;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -92,8 +127,17 @@
 			}
 		}
 
-		.button {
-			margin: 3rem auto auto;
+		.about-btn {
+			margin: auto;
+			position: absolute;
+			bottom: 3rem;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 5;
+
+			@include tablet {
+				bottom: 4rem;
+			}
 		}
 	}
 }

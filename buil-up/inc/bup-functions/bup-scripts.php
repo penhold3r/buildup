@@ -40,4 +40,4 @@ function bup_styles_and_scripts()
     wp_localize_script('BUP_Script', 'theme', $data);
 }
 
-add_action('init', 'bup_styles_and_scripts');
+add_action('wp_enqueue_scripts', 'bup_styles_and_scripts');

@@ -101,6 +101,7 @@
 			}
 
 			.post-img {
+				opacity: 0;
 				margin: 3rem auto;
 				width: 80px;
 
@@ -120,14 +121,8 @@
 			}
 		}
 
-		&.aos-animate {
-			.about-text {
-				@extend .border-cut--light-bottom;
-				max-width: $max-width;
-			}
-		}
-
 		.about-btn {
+			opacity: 0;
 			margin: auto;
 			position: absolute;
 			bottom: 3rem;
@@ -137,6 +132,21 @@
 
 			@include tablet {
 				bottom: 4rem;
+			}
+		}
+
+		&.aos-animate {
+			.about-text {
+				@extend .border-cut--light-bottom;
+				max-width: $max-width;
+
+				.post-img {
+					animation: fadeIn 0.5s linear 1.5s forwards;
+				}
+			}
+
+			.about-btn {
+				animation: fadeIn 0.5s linear 2.5s forwards;
 			}
 		}
 	}

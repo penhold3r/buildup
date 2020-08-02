@@ -1,0 +1,40 @@
+.error-404 {
+	background: $dark;
+	border-bottom: 1px solid $grey-900;
+	padding: 100px 1rem;
+	display: flex;
+
+	&__content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		margin: auto;
+
+		.not-found-title {
+			background: $gradient;
+			background-clip: text;
+			color: $secondary-color;
+			font-size: 8rem;
+			margin: 0 0 2rem;
+			text-align: center;
+			-webkit-text-fill-color: transparent;
+
+			@include firefox {
+				background: none;
+				background-clip: unset;
+			}
+
+			@include tablet {
+				font-size: 5rem;
+			}
+		}
+
+		.not-found-text {
+			text-align: center;
+			margin: 0 0 2rem;
+			color: $light;
+			font-size: 1.5rem;
+		}
+	}
+}

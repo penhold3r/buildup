@@ -25,7 +25,7 @@
       <div class="about-text" data-aos="fade-up" data-aos-delay="1000">
          <?php echo $about['about_text'] ?>
       </div>
-      <a href="/nosotros" class="button--outline--light about-btn" data-aos="fade-up">Conózcanos</a>
+      <a href="/nosotros" class="button--outline--light about-btn">Conózcanos</a>
    </div>
 
 </section><!-- .about-landing -->

@@ -6,6 +6,12 @@
  *
  *--------------------------------------------*/
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require get_template_directory() . '/ph/vendor/autoload.php';
+
 /**
  * Get theme name
  */
@@ -454,21 +460,24 @@ function build_form(array $f_options = array())
          array(
             'type' => 'text',
             'name' => 'name',
-            'labe' => false,
+            'class' => '',
+            'label' => false,
             'placeholder' => 'Name',
             'container_class' => false
          ),
          array(
             'type' => 'email',
             'name' => 'email',
-            'labe' => false,
+            'class' => '',
+            'label' => false,
             'placeholder' => 'E-Mail',
             'container_class' => false
          ),
          array(
             'type' => 'textarea',
             'name' => 'message',
-            'labe' => false,
+            'class' => '',
+            'label' => false,
             'placeholder' => 'Message',
             'container_class' => false
          )
@@ -584,6 +593,14 @@ function build_form(array $f_options = array())
  * Ajax Email function
  */
 
+// define the wp_mail_failed callback
+function action_wp_mail_failed($wp_error)
+{
+    return error_log(print_r($wp_error, true));
+}
+//add_action('wp_mail_failed', 'action_wp_mail_failed', 10, 1);
+
+// submit form
 function submit_form()
 {
     $data = $_POST;
@@ -595,11 +612,10 @@ function submit_form()
     $primary_color = '#009fe3';
     $secondary_color = '#00e6ff';
     $text_color = '#000b0c';
-    $host_domain = $_SERVER['HOST_NAME'];
+    $host_domain = $_SERVER['SERVER_NAME'];
     //
     //--------------------------------------------------------
-    //$dest = isset($data['dest']) ? $data['dest'] : 'penhold3r@gmail.com';
-    $dest = 'penhold3r@gmail.com';
+    $dest = isset($data['dest']) ? $data['dest'] : 'penhold3r@gmail.com';
     //
     $headers = "From: $name <$email>\r\n";
     $headers .= "X-Mailer: PHP5\n";
@@ -618,23 +634,51 @@ function submit_form()
         $body .= '<p style="color:'.$text_color.'; padding: 0px 10px; border-top:#DDD"><span style="font-size:14px; letter-spacing:0.05em; text-decoration: underline; text-transform:uppercase">Mensaje:</span><br/>'.$message.'</p>';
     }
     $body .= '</div>';
- 
-   
-    $sent = wp_mail($dest, $subject, $body, $headers);
-   
-    if ($sent) {
-        echo json_encode(array(
-         'success' => true,
-         'data' => $data
-      ));
-    }//message sent!
-    else {
-        echo json_encode(array(
-         'success' => false,
-         'data' => $data
-      ));
-    }//message wasn't sent
 
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->SMTPDebug   = 0; //SMTP::DEBUG_SERVER;
+        $mail->isSMTP();
+        $mail->Host        = 'c1700663.ferozo.com';
+        $mail->Port        = 465;
+        $mail->SMTPSecure  = 'ssl';
+        $mail->SMTPAuth    = true;
+        $mail->Username    = 'no-reply@buildup.com.ar';
+        $mail->Password    = '1BgKvh@ypV';
+
+        $mail->setFrom($email, $name);
+      
+        foreach (explode(',', $dest) as $dir) {
+            $mail->addAddress(trim(preg_replace('/\s+/', ' ', $dir)));
+        }
+      
+        $mail->addReplyTo($email, $name);
+
+        $mail->isHTML(true);
+
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->AltBody = $message != '' ? $message : $subject . ' email: '. $email;
+      
+        $mail->CharSet = 'UTF-8';
+
+        $mail->send();
+
+        echo json_encode(array(
+              'success' => true,
+              'data' => $data
+           ));
+    } catch (Exception $e) {
+        echo json_encode(array(
+           'success' => false,
+           'data' => $data,
+           'error' => $e,
+           'phpMailError' => $mail->ErrorInfo
+        ));
+    }
+   
     die();
 }
 

@@ -25,15 +25,17 @@ const initForm = form => {
 
 		submitFormData(form, settings)
 			.then(({ data: { success, data } }) => {
-				success && contactResp(msg, data.name, success)
+				console.log({ ok: { success, data } })
+				contactResp(msg, data.name, success)
 			})
 			.catch(({ ok, data, valid }) => {
-				console.warn(ok, valid, data)
-				ok && contactResp(msg, data.name, ok)
+				console.warn({ 'not ok': { ok, valid, data } })
 				if (!valid) {
 					msg.querySelector('p').innerHTML = ''
 					msg.classList.remove('visible')
 					data.field.classList.add('invalid')
+				} else {
+					contactResp(msg, data.name, ok)
 				}
 			})
 	})
@@ -43,7 +45,7 @@ const contactResp = (msg, name, ok) => {
 	const msgClose = document.createElement('div')
 	const txt = ok
 		? `${name}, gracias por comunicarte con nosotros, te responderemos a la brevedad.`
-		: `${name}, algo parece haber salido mal, intenta luego más tarde.`
+		: `${name ? name + ', a' : 'A'}lgo parece haber salido mal, intenta luego más tarde.`
 
 	msgClose.classList.add('button--outline--light', 'close-form-msg')
 	msgClose.innerHTML = 'Enviar otro mensaje'

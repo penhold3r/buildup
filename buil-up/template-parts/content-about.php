@@ -14,11 +14,11 @@
    <header class="about-page__header">
       <?php acf_image('header_image', array('classes' => array('lazy'))) ?>
 
-      <div class="header-content" data-aos="fade-right">
+      <div class="header-content" data-aos="fade-down">
          <h2 class="about-title" data-aos="fade-down" data-aos-delay="600">
             <?php the_title(); ?>
          </h2>
-         <div class="about-text border-cut--light-left" data-aos="fade-down" data-aos-delay="500">
+         <div class="about-text" data-aos="fade-down" data-aos-delay="500">
             <?php the_field('header_text') ?>
          </div>
       </div>
